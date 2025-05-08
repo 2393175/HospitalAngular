@@ -1,0 +1,72 @@
+/* Style the header buttons */
+.header {
+    display: flex;
+    justify-content: space-between; /* Align buttons evenly */
+    padding: 10px;
+    background-color: #f8f9fa; /* Light background */
+  }
+  
+  .header button {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-right: 10px; /* Add spacing between buttons */
+  }
+  
+  /* Different button colors */
+  .Today {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .Add {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .header button:hover {
+    opacity: 0.8;
+  }
+  
+  /* Style the container */
+  .container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  
+  /* Total Hours Worked Block */
+  .block.hours {
+    background-color: #dc3545; /* Red */
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 40%;
+  }
+  
+  /* Total Appointments Block */
+  .block.appointments {
+    background-color: #ffc107; /* Yellow */
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 40%;
+  }
+  
+  /* Ensure blocks are responsive */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .block {
+      width: 80%;
+      margin-bottom: 15px;
+    }
+  }
+  

@@ -1,0 +1,64 @@
+<h2>Book an Appointment</h2>
+
+<!-- Patient ID Input -->
+<label for="patientId">Enter Patient ID:</label>
+<input type="number" [(ngModel)]="patientId" name="patientId" required />
+
+<h3>Select a Doctor</h3>
+<div *ngIf="doctors.length > 0" class="doctor-container">
+  <div *ngFor="let doctor of doctors" class="doctor-card" [class.selected]="doctor.doctorId === selectedDoctorId" (click)="selectDoctor(doctor.doctorId)">
+    <p><strong>Doctor ID:</strong> {{ doctor.doctorId }}</p>
+    <p><strong>Name:</strong> {{ doctor.doctorName }}</p>
+    <p><strong>Specialization:</strong> {{ doctor.specialization }}</p>
+  </div>
+</div>
+
+<!-- Show Selected Doctor -->
+<div *ngIf="selectedDoctorId">
+  <p><strong>Selected Doctor ID:</strong> {{ selectedDoctorId }}</p>
+</div>
+<!-- Date Selection -->
+<label for="date">Select Date:</label>
+<input type="date" [(ngModel)]="selectedDate" name="date" required />
+
+<!-- Fetch Available Slots -->
+<button (click)="fetchSlots()">Check Available Slots</button>
+
+<!-- Slot Selection -->
+<!-- <div *ngIf="slots.length > 0">
+  <h3>Available Slots</h3>
+  <table border="1">
+    <tr>
+      <th>Slot ID</th>
+      <th>Start Time</th>
+      <th>End Time</th>
+    </tr>
+    <tr *ngFor="let slot of slots">
+      <td>{{ slot.slotId }}</td>
+      <td>{{ slot.startTime }}</td>
+      <td>{{ slot.endTime }}</td>
+    </tr>
+  </table>
+  <h3>Available Slots</h3> -->
+
+<!-- Display Unbooked Slots -->
+<div *ngIf="slots.length > 0" class="slots-container">
+  <div *ngFor="let slot of slots" class="slot-box" [class.selected]="slot.slotId === selectedSlotId" (click)="selectSlot(slot.slotId)">
+    <p><strong>Slot ID:</strong> {{ slot.slotId }}</p>
+    <p><strong>Start Time:</strong> {{ slot.startTime }}</p>
+    <p><strong>End Time:</strong> {{ slot.endTime }}</p>
+  </div>
+</div>
+
+<!-- Show Selected Slot -->
+<div *ngIf="selectedSlotId">
+  <p><strong>Selected Slot ID:</strong> {{ selectedSlotId }}</p>
+</div>
+
+  <!-- Slot ID Input -->
+  <!-- <label for="slotId">Enter Slot ID:</label>
+  <input type="number" [(ngModel)]="selectedSlotId" name="slotId" required /> -->
+
+  <!-- Submit Appointment -->
+  <button (click)="bookAppointment()">Confirm Appointment</button>
+<!-- </div> -->

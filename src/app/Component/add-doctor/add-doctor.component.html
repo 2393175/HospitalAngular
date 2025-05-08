@@ -1,0 +1,55 @@
+<div class="add-doctor-container">
+    <h2>Add Doctor</h2>
+    <form (ngSubmit)="addDoctor()">
+      <div class="form-group">
+        <label for="doctorName">Name:</label>
+        <input
+          type="text"
+          id="doctorName"
+          [(ngModel)]="doctor.doctorName"
+          name="doctorName"
+          placeholder="Enter Doctor Name"
+          required
+        />
+      </div>
+ 
+      <div class="form-group">
+        <label for="specialization">Specialization:</label>
+        <input
+          type="text"
+          id="specialization"
+          [(ngModel)]="doctor.specialization"
+          name="specialization"
+          placeholder="Enter Specialization"
+          required
+        />
+      </div>
+ 
+      <div class="form-group">
+        <label for="doctorEmail">Email:</label>
+        <input
+          type="email"
+          id="doctorEmail"
+          [(ngModel)]="doctor.doctorEmail"
+          name="doctorEmail"
+          placeholder="Enter Email"
+          required
+        />
+      </div>
+ 
+      <div class="form-group">
+        <label for="doctorContactNumber">Contact Number:</label>
+        <input
+          type="text"
+          id="doctorContactNumber"
+          [(ngModel)]="doctor.doctorContactNumber"
+          name="doctorContactNumber"
+          placeholder="Enter Contact Number"
+          required
+        />
+      </div>
+ 
+      <button type="submit" class="btn btn-primary">Add Doctor</button>
+    </form>
+  </div>
+ 

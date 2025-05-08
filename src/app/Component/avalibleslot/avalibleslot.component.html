@@ -1,0 +1,38 @@
+<h2>Available Slots</h2>
+
+<!-- Form to Select Doctor ID & Date -->
+<form (ngSubmit)="fetchSlots()">
+  <label for="doctorId">Doctor ID:</label>
+  <input type="number" [(ngModel)]="doctorId" name="doctorId" required />
+
+  <label for="date">Select Date:</label>
+  <input type="date" [(ngModel)]="selectedDate" name="date" required />
+
+  <button type="submit">Check Slots</button>
+</form>
+
+<!-- Display Error Message -->
+<div *ngIf="errorMessage" class="error-message">
+  {{ errorMessage }}
+</div>
+
+<!-- Display Unbooked Slots as Green Blocks -->
+<div *ngIf="slots.length > 0" class="slots-container">
+  <h3>Available Slots</h3>
+
+  <div *ngFor="let slot of slots" class="slot-box">
+    <p><strong>Slot ID:</strong> {{ slot.slotId }}</p>
+    <p><strong>Start Time:</strong> {{ slot.startTime }}</p>
+    <p><strong>End Time:</strong> {{ slot.endTime }}</p>
+  </div>
+</div>
+
+
+<!-- No Slots Message -->
+<!-- <div *ngIf="slots.length === 0 && doctorId && selectedDate">
+  <p>No available slots found for the selected doctor and date.</p>
+</div> -->
+<div *ngIf="slots.length > 0" class="slots-container">
+ 
+
+ 

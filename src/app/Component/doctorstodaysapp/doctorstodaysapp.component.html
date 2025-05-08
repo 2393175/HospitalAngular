@@ -1,0 +1,27 @@
+<h2>Doctor's Appointments Today</h2>
+
+<label for="doctor">Enter Doctor ID:</label>
+<input type="number" [(ngModel)]="doctorId" name="doctor" required />
+
+<button (click)="fetchTodaysAppointments()">Get Appointments</button>
+
+<!-- Display Doctor's Appointments -->
+<div *ngIf="appointments.length > 0">
+  <h3>Today's Appointments</h3>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Patient ID</th>
+        <th>Appointment Time</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let appointment of appointments">
+        <td>{{ appointment.patientId }}</td>
+        <td>{{ appointment.appointmentDate | date:'yyyy-MM-dd HH:mm' }}</td>
+        <td>{{ appointment.status }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

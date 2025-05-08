@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Appointment Booking</title>
+    <link rel="stylesheet" href="patient-home.component.css"> <!-- External CSS file -->
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Book & Manage Your Appointments Effortlessly</h1>
+        <p>Your health is our priority. Easily schedule appointments and check your medical history.</p>
+        
+        <div class="button-container">
+            <button class="ongoing-btn" routerLink="'/app-ongoing-appointments'" routerLinkActive="active">Upcoming Appointments</button>
+            <button class="book-btn" routerLink="'/app-addappointment'" routerLinkActive="active">Book Appointment</button>
+            <button class="history-btn" routerLink="'/app-previousmedicalhistory'" routerLinkActive="active">Previous Medical History</button>
+            <button class="previous-btn" routerLink="'/app-previous-appointment'" routerLinkActive="active">Previous Appointments</button>
+        </div>
+    </section>
+
+</body>
+</html>

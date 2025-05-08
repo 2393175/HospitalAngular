@@ -1,0 +1,53 @@
+<table border="1" style="width: 100%; border-collapse: collapse; text-align: left;">
+    <thead>
+      <tr style="background-color: #f4f4f4;">
+        <th>ID</th>
+        <th>Name</th>
+        <th>Specialization</th>
+        <th>Email</th>
+        <th>Contact Number</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let doctor of doctors">
+        <!-- Doctor ID -->
+        <td>{{ doctor.doctorId }}</td>
+   
+        <!-- Doctor Name -->
+        <td *ngIf="editingDoctor?.doctorId !== doctor.doctorId">{{ doctor.doctorName }}</td>
+        <td *ngIf="editingDoctor?.doctorId === doctor.doctorId && editingDoctor">
+          <input [(ngModel)]="editingDoctor.doctorName" placeholder="Enter Name" />
+        </td>
+   
+        <!-- Specialization -->
+        <td *ngIf="editingDoctor?.doctorId !== doctor.doctorId">{{ doctor.specialization }}</td>
+        <td *ngIf="editingDoctor?.doctorId === doctor.doctorId && editingDoctor">
+          <input [(ngModel)]="editingDoctor.specialization" placeholder="Enter Specialization" />
+        </td>
+   
+        <!-- Email -->
+        <td *ngIf="editingDoctor?.doctorId !== doctor.doctorId">{{ doctor.doctorEmail }}</td>
+        <td *ngIf="editingDoctor?.doctorId === doctor.doctorId && editingDoctor">
+          <input [(ngModel)]="editingDoctor.doctorEmail" placeholder="Enter Email" />
+        </td>
+   
+        <!-- Contact Number -->
+        <td *ngIf="editingDoctor?.doctorId !== doctor.doctorId">{{ doctor.doctorContactNumber }}</td>
+        <td *ngIf="editingDoctor?.doctorId === doctor.doctorId && editingDoctor">
+          <input [(ngModel)]="editingDoctor.doctorContactNumber" placeholder="Enter Contact Number" />
+        </td>
+   
+        <!-- Actions -->
+        <td *ngIf="editingDoctor?.doctorId !== doctor.doctorId">
+          <button (click)="editDoctor(doctor)">Edit</button>
+          <button (click)="deleteDoctor(doctor.doctorId)">Delete</button>
+        </td>
+        <td *ngIf="editingDoctor?.doctorId === doctor.doctorId && editingDoctor">
+          <button (click)="saveDoctor()">Save</button>
+          <button (click)="cancelEdit()">Cancel</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+   

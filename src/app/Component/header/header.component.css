@@ -1,0 +1,54 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    background-color: #0d7676; /* Green background */
+    color: white; /* White text */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for elegance */
+    padding: 10px 20px; /* Space inside the navbar */
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+}
+
+.container {
+    display: flex;
+    justify-content: space-between; /* Place brand on one side and nav items on the other */
+    align-items: center; /* Align vertically */
+    width: 100%; /* Ensure the container stretches across the navbar */
+    max-width: 1200px; /* Add a max-width for better layout on larger screens */
+}
+
+.navbar-brand {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: white; /* White text for brand */
+    text-decoration: none; /* Remove underline */
+}
+
+.navbar-nav {
+    list-style-type: none; /* Remove bullets */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Horizontal layout */
+    gap: 15px; /* Space between items */
+}
+
+.nav-item {
+    margin: 0;
+}
+
+.nav-link {
+    color: white; /* White text for links */
+    text-decoration: none; /* Remove underline */
+    padding: 8px 12px; /* Add padding around links */
+    transition: background-color 0.3s, color 0.3s; /* Smooth hover effect */
+    font-size: 1em; /* Adjust text size */
+}
+
+.nav-link:hover {
+    background-color: white; /* Hover effect: white background */
+    color: #4CAF50; /* Green text on hover */
+    border-radius: 5px; /* Rounded hover effect */
+}

@@ -1,0 +1,33 @@
+<div class="container mt-5">
+    <h2 class="text-center">Generate Slots</h2>
+    <form (ngSubmit)="onGenerateSlots()">
+      <div class="mb-3">
+        <label for="startDate" class="form-label">Start Date:</label>
+        <input type="date" id="startDate" [(ngModel)]="startDate" name="startDate" class="form-control" required />
+      </div>
+      <div class="mb-3">
+        <label for="endDate" class="form-label">End Date:</label>
+        <input type="date" id="endDate" [(ngModel)]="endDate" name="endDate" class="form-control" required />
+      </div>
+      <div class="mb-3">
+        <label for="slotDuration" class="form-label">Slot Duration (HH:mm:ss):</label>
+        <input type="text" id="slotDuration" [(ngModel)]="slotDuration" name="slotDuration" class="form-control" required />
+      </div>
+      <div class="mb-3">
+        <label for="dailyStartTime" class="form-label">Daily Start Time (HH:mm:ss):</label>
+        <input type="text" id="dailyStartTime" [(ngModel)]="dailyStartTime" name="dailyStartTime" class="form-control" required />
+      </div>
+      <div class="mb-3">
+        <label for="dailyEndTime" class="form-label">Daily End Time (HH:mm:ss):</label>
+        <input type="text" id="dailyEndTime" [(ngModel)]="dailyEndTime" name="dailyEndTime" class="form-control" required />
+      </div>
+      <div class="mb-3">
+        <label for="doctorId" class="form-label">Doctor ID:</label>
+        <input type="number" id="doctorId" [(ngModel)]="doctorId" name="doctorId" class="form-control" required />
+      </div>
+      <button type="submit" class="btn btn-primary w-100">Generate Slots</button>
+    </form>
+    <div *ngIf="successMessage" class="alert alert-success mt-3">{{ successMessage }}</div>
+    <div *ngIf="errorMessage" class="alert alert-danger mt-3">{{ errorMessage }}</div>
+  </div>
+ 

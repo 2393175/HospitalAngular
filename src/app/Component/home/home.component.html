@@ -1,0 +1,21 @@
+<div class="header">
+    <button class="Today" routerLink="/app-patient-history" routerLinkActive="active">Patient History </button>
+  
+    <button class="Today" routerLink="/app-doctorstodaysapp" routerLinkActive="active">Today's Schedule</button>
+    <button class="Add" routerLink="/" routerLinkActive="active">Add Schedule</button>
+    <button class="Today" routerLink="/app-modify-schedule" routerLinkActive="active">Modify Schedule</button>
+    <!-- <button class="Add">Patient Details</button> -->
+  </div>
+  
+  
+  <div class="container">
+    <div class="block hours">
+      <h2>Total Hours Worked</h2>
+      <p>{{ totalHours }} hours</p>
+    </div>
+    <div class="block appointments">
+      <h2>Total Appointments</h2>
+      <p>{{ totalAppointments }}</p>
+    </div>
+  </div>
+  

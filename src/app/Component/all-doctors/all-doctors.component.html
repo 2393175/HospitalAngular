@@ -1,0 +1,17 @@
+<h2>All Doctors</h2>
+
+<table border="1">
+  <tr>
+    <th>Doctor ID</th>
+    <th>Name</th>
+    <th>Specialization</th>
+  </tr>
+  <tr *ngFor="let doctor of doctors">
+    <td>{{ doctor.doctorId }}</td>
+    <td>{{ doctor.doctorName }}</td>
+    <td>{{ doctor.specialization }}</td>
+  </tr>
+</table>
+
+<!-- Back Button -->
+<button (click)="goBack()">Back</button>
