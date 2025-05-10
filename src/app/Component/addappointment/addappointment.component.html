@@ -1,9 +1,9 @@
 <h2>Book an Appointment</h2>
 
 <!-- Patient ID Input -->
-<label for="patientId">Enter Patient ID:</label>
-<input type="number" [(ngModel)]="patientId" name="patientId" required />
-
+<label for="patientId">Patient ID:</label>
+<input type="number" id="patientId" [(ngModel)]="patientId" name="patientId" required   [readonly]="userRole === 'Patient'"/>
+<p *ngIf="patientId !== null"><strong>Auto-filled Patient ID:</strong> {{ patientId }}</p>
 <h3>Select a Doctor</h3>
 <div *ngIf="doctors.length > 0" class="doctor-container">
   <div *ngFor="let doctor of doctors" class="doctor-card" [class.selected]="doctor.doctorId === selectedDoctorId" (click)="selectDoctor(doctor.doctorId)">
@@ -61,4 +61,14 @@
 
   <!-- Submit Appointment -->
   <button (click)="bookAppointment()">Confirm Appointment</button>
+  <div>
+    <button (click)="goBack()" class="btn btn-danger m-2">Back</button>
+  </div>
+  <div>
+    <p>   </p>
+  </div>
+  <div>
+    <p>  </p>
+  </div>
+  
 <!-- </div> -->

@@ -2,9 +2,10 @@
 
 <label for="doctor">Enter Doctor ID:</label>
 <input type="number" [(ngModel)]="doctorId" name="doctor" required />
-
-<button (click)="fetchTodaysAppointments()">Get Appointments</button>
-
+<div class="button-container">
+    <button (click)="fetchTodaysAppointments()">Get Appointments</button>
+    <button (click)="goBack()" class="btn btn-danger m-0">Back</button>
+</div>
 <!-- Display Doctor's Appointments -->
 <div *ngIf="appointments.length > 0">
   <h3>Today's Appointments</h3>

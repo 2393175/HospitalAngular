@@ -1,0 +1,20 @@
+<div class="container">
+    <h2>Add Medical History</h2>
+    <form [formGroup]="medicalHistoryForm" (ngSubmit)="submitForm()">
+        <label>Patient ID:</label>
+        <input type="number" formControlName="patientId">
+ 
+        <label>Diagnosis:</label>
+        <input type="text" formControlName="diagnosis">
+ 
+        <label>Treatment:</label>
+        <input type="text" formControlName="treatment">
+ 
+        <label>Date:</label>
+        <input type="date" formControlName="DateRecorded">
+ 
+        <button type="submit">Submit</button>
+    </form>
+ 
+   
+</div>

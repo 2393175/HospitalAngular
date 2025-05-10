@@ -3,7 +3,14 @@
 <label for="phone">Enter Mobile Number:</label>
 <input type="text" [(ngModel)]="phoneNumber" name="phone" required />
 
-<button (click)="fetchMedicalHistory()">Get Medical History</button>
+<div class="button-container">
+    <button (click)="fetchMedicalHistory()">Get Medical History</button>
+   
+</div>
+<div>
+  <button (click)="goBack()" class="btn btn-danger m-2">Back</button>
+</div>
+
 
 <!-- Display Medical History -->
 <div *ngIf="medicalHistory.length > 0">
@@ -24,4 +31,5 @@
       </tr>
     </tbody>
   </table>
+  
 </div>

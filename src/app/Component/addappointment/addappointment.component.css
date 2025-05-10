@@ -44,8 +44,8 @@ form {
   }
   
   .doctor-card {
-    border: 2px solid #ddd;
-    background-color: #fff; /* ✅ White Background */
+    border: 2px solid #eb0b0b;
+    background-color: #f0f3f4; /* ✅ White Background */
     padding: 15px;
     width: 250px;
     text-align: center;

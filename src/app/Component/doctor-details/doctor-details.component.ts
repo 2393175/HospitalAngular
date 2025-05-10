@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DoctorService, Doctor } from '../../Services/services.service';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
  
 @Component({
   selector: 'app-doctor-details',
@@ -14,7 +15,7 @@ export class DoctorDetailsComponent implements OnInit {
   doctors: Doctor[] = [];
   editingDoctor: Doctor | null = null; // Track the doctor being edited
  
-  constructor(private doctorService: DoctorService) {}
+  constructor(private doctorService: DoctorService,private router: Router) {}
  
   ngOnInit(): void {
     this.getDoctors();
@@ -74,5 +75,8 @@ export class DoctorDetailsComponent implements OnInit {
   // Cancel editing
   cancelEdit(): void {
     this.editingDoctor = null; // Clear the editing state
+  }
+  goBack():void {
+    this.router.navigate(['app-staff-home']);
   }
 }

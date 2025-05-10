@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MedhistserviceService } from '../../Services/medhistservice.service';
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -14,9 +15,10 @@ import { MedhistserviceService } from '../../Services/medhistservice.service';
 export class PatientHistoryComponent {
   phoneNumber: string = ''; // ✅ Patient enters phone number
   medicalHistory: any[] = [];
+  // router: any;
 
   
-  constructor(private medhistService: MedhistserviceService) {}
+  constructor(private medhistService: MedhistserviceService,private location: Location) {}
 
   fetchMedicalHistory(): void {
     if (!this.phoneNumber) {
@@ -25,7 +27,9 @@ export class PatientHistoryComponent {
     }
   
     this.medhistService.getMedicalHistory(this.phoneNumber).subscribe({
+      
       next: (response: any) => {
+        
         console.log("Medical History Data:", response);
   
         // ✅ Ensure medical history array is properly assigned
@@ -42,5 +46,8 @@ export class PatientHistoryComponent {
         alert("Failed to retrieve medical history.");
       }
     });
+  }
+  goBack(): void {
+    this.location.back();
   }
 }

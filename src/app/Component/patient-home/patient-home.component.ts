@@ -8,5 +8,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './patient-home.component.css'
 })
 export class PatientHomeComponent {
+  doctorsAvailable: number = 12; // Hardcoded value
+  todaysAppointments: number = 48
 
 }

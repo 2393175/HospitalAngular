@@ -21,9 +21,15 @@ table {
     color: white;
     border: none;
     cursor: pointer;
-  }
-  
-  button:hover {
+    margin-right: 15px; /* ✅ Adds space between buttons */
+}
+
+button:hover {
     background-color: #218838;
-  }
+}
+
+.button-container {
+    display: flex;
+    gap: 20px; /* ✅ Creates space between buttons */
+}
   

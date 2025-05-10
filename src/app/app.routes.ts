@@ -3,7 +3,7 @@ import { AboutComponent } from './Component/about/about.component';
 import { AllDoctorsComponent } from './Component/all-doctors/all-doctors.component';
 import { ContactnumberComponent } from './Component/contactnumber/contactnumber.component';
 import { HerosectionComponent } from './Component/herosection/herosection.component';
-import { SignupandloginComponent } from './Component/signupandlogin/signupandlogin.component';
+
 import { AddappointmentComponent } from './Component/addappointment/addappointment.component';
 
 import { AvalibleslotComponent } from './Component/avalibleslot/avalibleslot.component';
@@ -15,6 +15,10 @@ import { AddSlotsComponent } from './Component/add-slots/add-slots.component';
 import { DoctorDetailsComponent } from './Component/doctor-details/doctor-details.component';
 import { PatientHomeComponent } from './Component/patient-home/patient-home.component';
 import { AddDoctorComponent } from './Component/add-doctor/add-doctor.component';
+import { LoginPageComponent } from './Component/login-page/login-page.component';
+import { PatientUpcomingappComponent } from './Component/patient-upcomingapp/patient-upcomingapp.component';
+import { SignupComponent } from './Component/signup/signup.component';
+import { AddmedicalhistoryComponent } from './Component/addmedicalhistory/addmedicalhistory.component';
 // import { TokenGuard } from './Guard/token.guard';
 export const routes: Routes = [
     {
@@ -33,11 +37,7 @@ export const routes: Routes = [
         component:HerosectionComponent
 
     },
-    {
-        path:'app-signupandlogin',
-        component:SignupandloginComponent
-
-    },
+    
     {
         path:'app-addappointment',
         component:AddappointmentComponent
@@ -73,12 +73,28 @@ export const routes: Routes = [
         component:DoctorDetailsComponent
     },
     {
-        path:'patient-home',
+        path:'app-patient-home',
         component:PatientHomeComponent
     },
     {
         path:'app-add-doctor',
         component:AddDoctorComponent
+    },
+    {
+        path:'app-login-page',
+        component:LoginPageComponent
+    },
+    {
+        path:'app-patient-upcomingapp',
+        component:PatientUpcomingappComponent
+    },
+    {
+        path:'app-signup',
+        component:SignupComponent
+    },
+    {
+        path:'app-addmedicalhistory',
+        component:AddmedicalhistoryComponent
     }
     
     

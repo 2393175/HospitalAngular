@@ -50,5 +50,8 @@ export class AddDoctorComponent {
       this.doctor.doctorEmail.trim() !== ''
     );
   }
+  goBack():void {
+    this.router.navigate(['app-staff-home']);
+  }
 }
  

@@ -3,21 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hospital Appointment Booking</title>
+    <title>Patient Dashboard</title>
     <link rel="stylesheet" href="patient-home.component.css"> <!-- External CSS file -->
 </head>
 <body>
 
     <!-- Hero Section -->
     <section class="hero">
-        <h1>Book & Manage Your Appointments Effortlessly</h1>
-        <p>Your health is our priority. Easily schedule appointments and check your medical history.</p>
-        
+        <h2>Hello, Patient!</h2>
+        <p>Manage your appointments, medical history, and ongoing treatments effortlessly.</p>
+
         <div class="button-container">
-            <button class="ongoing-btn" routerLink="'/app-ongoing-appointments'" routerLinkActive="active">Upcoming Appointments</button>
-            <button class="book-btn" routerLink="'/app-addappointment'" routerLinkActive="active">Book Appointment</button>
-            <button class="history-btn" routerLink="'/app-previousmedicalhistory'" routerLinkActive="active">Previous Medical History</button>
-            <button class="previous-btn" routerLink="'/app-previous-appointment'" routerLinkActive="active">Previous Appointments</button>
+            <button class="hero-btn" [routerLink]="'/app-addappointment'">Book Appointment</button>
+            <button class="hero-btn" [routerLink]="'/app-patient-upcomingapp'">Upcoming Appointments</button>
+            
+            <button class="hero-btn" [routerLink]="'/app-addmedicalhistory'"> Add Medical History</button>
+            <button class="hero-btn" [routerLink]="'/app-patient-history'"> get  your Medical History</button>
+        </div>
+    </section>
+    <section class="dashboard">
+        <div class="info-box">
+            <h3>Doctors Available</h3>
+            <p>{{ doctorsAvailable }}</p>
+        </div>
+
+        <div class="info-box">
+            <h3>Total Patients Treated yesterday </h3>
+            <p>{{ todaysAppointments }}</p>
         </div>
     </section>
 

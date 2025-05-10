@@ -1,0 +1,38 @@
+<div class="container">
+  <h2>Upcoming Appointments</h2>
+
+  <form (submit)="fetchUpcomingAppointments()">
+    <label for="patientId">Enter Patient ID:</label>
+    <input type="number" id="patientId" [(ngModel)]="patientId" name="patientId" required>
+    <button type="submit">Search</button>
+    <!-- <button (click)="goBack()" class="btn btn-danger m-0">Back</button> -->
+  </form>
+  <div>
+    <button (click)="goBack()" class="btn btn-danger m-0">Back</button>
+  </div>
+
+  <p *ngIf="hasSearched && upcomingAppointments.length === 0">
+    No upcoming appointments found.
+  </p>
+
+  <table *ngIf="upcomingAppointments.length > 0" class="appointment-table">
+    <thead>
+      <tr>
+        <th>Appointment ID</th>
+        <th>Doctor ID</th>
+        <th>Slot ID</th>
+        <th>Appointment Date</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let appointment of upcomingAppointments">
+        <td>{{ appointment.appointmentId }}</td>
+        <td>{{ appointment.doctorId }}</td>
+        <td>{{ appointment.slotId }}</td>
+        <td>{{ appointment.appointmentDate | date: 'medium' }}</td>
+        <td>{{ appointment.status }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

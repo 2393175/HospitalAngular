@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 
-import {  RouterLink, RouterLinkActive } from '@angular/router';
+import {  Router, RouterLink, RouterLinkActive } from '@angular/router';
 import {  HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Location } from '@angular/common';
 import { DoctorserviceService } from '../../Services/doctorservice.service';
 import { AvalibleslotsService } from '../../Services/avalibleslots.service';
 import { AddappointmentService } from '../../Services/addappointment.service';
@@ -21,18 +22,52 @@ export class AddappointmentComponent {
   selectedDoctorId: number = 0;
   selectedDate: string = '';
   selectedSlotId: number = 0;
-  patientId: number = 123; // Hardcoded for now, replace with real patient ID
+  patientId: number | null = null; // Now dynamic
+  userRole: string | null = null; // Hardcoded for now, replace with real patient ID
+  
+  
+  // Initialize userRole to an empty string
 
   constructor(
     private doctorService: DoctorserviceService ,
     private slotsService: AvalibleslotsService,
-    private appointmentService: AddappointmentService
+    private appointmentService: AddappointmentService,
+    
+    private location: Location,
+    private cd: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
     this.getDoctors();
+    this.loadPatientIdFromLocalStorage();
+    window.addEventListener('storage', this.updatePatientId);
+  }
+  ngOnDestroy(): void {
+    // ✅ Remove event listener when component is destroyed
+    window.removeEventListener('storage', this.updatePatientId);
   }
 
+
+  loadPatientIdFromLocalStorage(): void {
+    
+    this.userRole = localStorage.getItem('userRole'); // Get user role
+    const storedRoleId = localStorage.getItem('roleId'); // Role ID is Patient ID
+
+    // ✅ Auto-fill Patient ID if the role is "Patient"
+    if (this.userRole === 'Patient' && storedRoleId) {
+      this.patientId = Number(storedRoleId);
+    } else {
+      this.patientId = null; // Allow manual entry if role isn't "Patient"
+    }
+    this.cd.detectChanges();
+  }
+  updatePatientId = (): void => {
+    this.loadPatientIdFromLocalStorage(); // ✅ Updates dynamically on localStorage change
+  };
+
+
+
+ 
   getDoctors(): void {
     this.doctorService.getDoctors().subscribe({
       next: (response: any) => {
@@ -84,7 +119,7 @@ export class AddappointmentComponent {
       },
       error: (error: any) => {
         console.error("Error fetching slots:", error);
-        alert("Failed to fetch slots. Please try another date.");
+        alert("Doctor is not Available on this Day. Please try another date.");
       }
     });
   }
@@ -100,7 +135,7 @@ export class AddappointmentComponent {
     }
   
     const appointmentData = {
-      patientId: this.patientId, // ✅ Include Patient ID
+      PatientId: this.patientId, // ✅ Include Patient ID
       doctorId: this.selectedDoctorId,
       slotId: this.selectedSlotId,
       appointmentDate: this.selectedDate
@@ -125,5 +160,12 @@ export class AddappointmentComponent {
     
     
   }
+  goBack(): void {
+    this.location.back();
+  }
+
+
+
+  
 
 }

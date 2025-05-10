@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DoctortodaysappserviceService } from '../../Services/doctortodaysappservice.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,8 +15,9 @@ import { DoctortodaysappserviceService } from '../../Services/doctortodaysappser
 export class DoctorstodaysappComponent {
   doctorId: number = 0;
   appointments: any[] = [];
+ 
 
-  constructor(private doctorAppointmentsService: DoctortodaysappserviceService) {}
+  constructor(private doctorAppointmentsService: DoctortodaysappserviceService,private router: Router) {}
 
   fetchTodaysAppointments(): void {
     if (!this.doctorId) {
@@ -38,5 +40,8 @@ export class DoctorstodaysappComponent {
         }
       }
     });
+  }
+  goBack():void {
+    this.router.navigate(['app-home']);
   }
 }

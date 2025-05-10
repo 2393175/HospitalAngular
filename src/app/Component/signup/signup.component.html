@@ -1,0 +1,20 @@
+<div class="container">
+    <h2>Patient Signup</h2>
+  
+    <form (ngSubmit)="onSubmit()">
+      <label for="patientName">Name:</label>
+      <input type="text" id="patientName" [(ngModel)]="patient.patientName" name="patientName" required>
+  
+      <label for="patientEmail">Email:</label>
+      <input type="email" id="patientEmail" [(ngModel)]="patient.patientEmail" name="patientEmail" required>
+  
+      <label for="patientPhoneNumber">Phone Number:</label>
+      <input type="text" id="patientPhoneNumber" [(ngModel)]="patient.patientPhoneNumber" name="patientPhoneNumber" required>
+  
+      <label for="patientDateOfBirth">Date of Birth:</label>
+      <input type="date" id="patientDateOfBirth" [(ngModel)]="patient.patientDateOfBirth" name="patientDateOfBirth" required>
+  
+      <button type="submit">Signup</button>
+    </form>
+  </div>
+  
